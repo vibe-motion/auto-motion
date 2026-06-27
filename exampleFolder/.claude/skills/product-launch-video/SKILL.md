@@ -1,8 +1,7 @@
 ---
+name: product-launch-video
 description: "turn a product or marketing URL, pasted script, or brief into a product launch video, including SaaS promos, feature reveals, app launches, company promos, and product marketing videos. Use this skill when the user wants to market, launch, promote, or reveal a product. Do not use it for general non-launch website tours, non-product topic explainers, GitHub pull requests, captioning existing footage, or short unnarrated motion graphics. If the intent is unclear, route through /hyperframes first."
 ---
-> **media-use**: Before sourcing audio/images, call `/media-use` to resolve BGM/SFX/images from the HeyGen catalog. Run `--adopt` first to register existing assets. See `/media-use` skill.
-
 # Product Launch to HyperFrames
 
 Use this skill to capture a product, understand its brand, plan a launch video, and build it frame by frame in HyperFrames.
@@ -11,7 +10,7 @@ Use this skill to capture a product, understand its brand, plan a launch video, 
 
 You are the orchestrator. Work in `videos/<project>/`. Run steps in order and pass each gate before continuing. User-gated steps are Step 0, Step 3, and Step 6. Do every step yourself except Step 5, where you dispatch one sub-agent per frame. Do not put design or motion rules here; those live in the frame-worker sub-agent, `hyperframes-creative`, and `hyperframes-animation`.
 
-Workflow: Step 0 setup -> `hyperframes.json`; Step 1 capture -> `capture/`; Step 2 design system -> `frame.md`; Step 3 storyboard/script -> `STORYBOARD.md` and `SCRIPT.md`; Step 3.1 audio -> `audio_meta.json`; Step 4 visual design -> enriched `STORYBOARD.md`; Step 5 frames -> `compositions/frames/NN-*.html` and `index.html`; Step 6 final render -> `renders/video.mp4`.
+Workflow: Step 0 setup -> `hyperframes.json`; Step 1 capture -> `capture/`; Step 2 design system -> `frame.md`; Step 3 storyboard/script -> `STORYBOARD.md` and `SCRIPT.md`; Step 4 visual design -> enriched `STORYBOARD.md`; Step 5 frames -> `compositions/frames/NN-*.html` and `index.html`; Step 6 final render -> `renders/video.mp4`.
 
 ---
 
@@ -23,9 +22,9 @@ Initialize only if `hyperframes.json` is missing. Name `<project>` from the bran
 
 `npx hyperframes init "videos/<project>" --non-interactive --skip-skills --example=blank`
 
-**Show sign-in status before the brief** — run `npx hyperframes auth status` and **relay its output verbatim (don't paraphrase or rewrite it).** It reports whether voice/BGM will use HeyGen or local engines and, when not signed in, how to sign in. **If not signed in, STOP and wait for the user to choose — sign in, or say "go"/"offline" to continue with local engines — before asking the brief or anything else.** Treat it as a real decision point, not a passing note; don't fold the choice into the brief question, and don't write keys into a per-repo `.env`. (In autonomous mode, note the status and continue offline.) See `../hyperframes-media` → Preflight for the canonical guidance.
+**Show sign-in status before the brief** — run `npx hyperframes auth status` and **relay its output verbatim (don't paraphrase or rewrite it).** (In autonomous mode, note the status and continue offline.) Treat it as a real decision point, not a passing note; don't write keys into a per-repo `.env`. See `../hyperframes-media` → Preflight for the canonical guidance.
 
-**Gate:** `hyperframes.json` exists, and angle, length, aspect ratio, and language are locked; sign-in status was shown (signed in, or continuing offline).
+**Gate:** `hyperframes.json` exists, and angle, length, and aspect ratio are locked; sign-in status was shown (signed in, or continuing offline).
 
 ---
 

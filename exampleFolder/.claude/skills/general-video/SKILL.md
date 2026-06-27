@@ -1,14 +1,13 @@
 ---
+name: general-video
 description: "The fallback workflow for authoring custom HyperFrames video compositions at any length or format — longer or multi-scene pieces, brand / sizzle reels, montages, title cards, static loops, and freeform compositions. Input- and length-agnostic. If a specialized workflow clearly fits the input — a marketed product, a website, a topic explainer, a GitHub PR, existing footage, a short motion graphic, or a Remotion port — prefer it (see /hyperframes); use this only as the general fallback when none fit.\n"
 metadata: {"tags":"orchestrator, general-video, fallback, freeform, composition-authoring"}
 ---
-> **media-use**: Before sourcing audio/images, call `/media-use` to resolve BGM/SFX/images from the HeyGen catalog. Run `--adopt` first to register existing assets. See `/media-use` skill.
-
 # general-video — general video workflow
 
 > **Confirm the route before you build.** This is the **fallback** for custom composition authoring. If the input clearly fits a specialized workflow, prefer it: marketed product → `/product-launch-video`; general site → `/website-to-video`; topic explainer → `/faceless-explainer`; GitHub PR → `/pr-to-video`; existing footage → `/embedded-captions` · `/talking-head-recut`; short unnarrated motion graphic → `/motion-graphics`; Remotion port → `/remotion-to-hyperframes`. **Out of scope**: live / at-render-time data, NLE-style editing of a finished video, or producing footage HyperFrames can't capture. Unsure? **Read `/hyperframes` first.**
 
-**Build exactly what was asked.** A title card is a title card — not a title card + three supporting scenes + ambient music + captions. If extra scenes or elements would genuinely improve the piece, _propose_ them; don't add them silently. For small edits (fix a color, adjust one duration, add one element), skip the planning steps and go straight to the build.
+**Build exactly what was asked.** A title card is a title card — not a title card + three supporting scenes + captions. If extra scenes or elements would genuinely improve the piece, _propose_ them; don't add them silently. For small edits (fix a color, adjust one duration, add one element), skip the planning steps and go straight to the build.
 
 ## Approach
 
@@ -87,7 +86,7 @@ Never use `position: absolute; top: Npx` on a content container — it overflows
 
 ## Build — delegate to the domain skills
 
-This maps the skill's full surface (see the `description`) to its references — non-exhaustive; when an intent isn't listed, route through `hyperframes-creative` (look/concept), `hyperframes-animation` (motion), `hyperframes-core` (contract), `hyperframes-media` (audio/captions). **The first row is ADDITIVE — read it AND your intent row, not one or the other.**
+This maps the skill's full surface (see the `description`) to its references — non-exhaustive; when an intent isn't listed, route through `hyperframes-creative` (look/concept), `hyperframes-animation` (motion), `hyperframes-core` (contract). **The first row is ADDITIVE — read it AND your intent row, not one or the other.**
 
 | Building…                                                             | Read first (in order)                                                                                                                                                                                |
 | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -97,32 +96,8 @@ This maps the skill's full surface (see the `description`) to its references —
 | **Logo / brand-mark reveal**                                          | `hyperframes-animation/rules/svg-path-draw.md` (draw-on) + `rules/3d-text-depth-layers.md` + `rules/scale-swap-transition.md`                                                                        |
 | **Data / stats / numbers**                                            | `hyperframes-animation/rules/counting-dynamic-scale.md` + `rules/stat-bars-and-fills.md` + `hyperframes-creative/references/data-in-motion.md`                                                       |
 | **Product / app / UI demo**                                           | `hyperframes-animation/rules/3d-page-scroll.md` + `rules/cursor-click-ripple.md` + `rules/press-release-spring.md`                                                                                   |
-| **Audio-reactive / music-driven**                                     | `hyperframes-creative/references/audio-reactive.md` (pre-extract bands; map to motion)                                                                                                               |
-| **Narrated / voiceover / music / SFX / captions**                     | `hyperframes-media` → the shared audio engine `scripts/audio.mjs` (one call = TTS + BGM + SFX → `audio_meta.json`); caption authoring + asset placement via `hyperframes-core`. See **Audio** below. |
 | **Multi-scene / transitions**                                         | `hyperframes-animation/transitions/overview.md` **then** `transitions/catalog.md` (you are not done after the overview — the GSAP recipe is in the catalog)                                          |
 | **Modular / sub-compositions**                                        | `hyperframes-core/references/composition-patterns.md` + `references/sub-compositions.md`                                                                                                             |
-
-### Audio: one engine (TTS · BGM · SFX)
-
-Only when the piece calls for it (per "build exactly what was asked" — no ambient music on a title card). Don't hand-roll TTS or vendor a copy: write a neutral `audio_request.json` and call the shared engine in `hyperframes-media`. It auto-degrades on one switch — HeyGen credential present → HeyGen TTS + music/SFX **retrieval**; absent → ElevenLabs/Kokoro TTS, Lyria/MusicGen BGM **generation**, and the bundled SFX library. Full flag list + request/meta schema: the header comment of `hyperframes-media/scripts/audio.mjs`.
-
-```jsonc
-// audio_request.json — one line per narrated segment; `id` is yours (joins audio_meta back)
-{
-  "lines": [
-    { "id": "s1", "text": "Your opening line.", "sfx": ["whoosh"] },
-    { "id": "s2", "text": "The next beat." },
-  ],
-  "bgm": { "query": "calm cinematic underscore" }, // omit "mode" → auto (retrieve if HeyGen, else generate); "none" to disable
-}
-```
-
-```bash
-# <MEDIA_DIR> = the installed hyperframes-media skill dir (sibling of this skill)
-node <MEDIA_DIR>/scripts/audio.mjs --request ./audio_request.json --hyperframes . --out ./audio_meta.json
-```
-
-Then read `audio_meta.json`: mount each `voices[].path` + (`bgm.path`, `sfx[]`) as `<audio>` tracks and use `voices[].words` for captions, all per `hyperframes-core` (audio tracks + caption authoring). If BGM took the generate path (`bgm_pending: true`), run `hyperframes-media/scripts/wait-bgm.mjs` before final render.
 
 ## Output checklist → `hyperframes-cli`
 
@@ -132,3 +107,4 @@ Then read `audio_meta.json`: mount each `voices[].path` + (`bgm.path`, `sfx[]`) 
 - [ ] contrast warnings addressed; for multi-scene work, review the animation map (`hyperframes-animation/scripts/animation-map.mjs`)
 - [ ] deliver the preview; render to MP4 only on explicit request
 - [ ] surface the preview **only at handoff** (it is the stable, final preview); don't pop one mid-build — build-phase snapshots are headless
+
