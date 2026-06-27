@@ -262,6 +262,6 @@ Always **measure the target element with `getBoundingClientRect()`** before the 
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — timeline + multi-property tween reference
-- `/hyperframes-core` — composition wiring, `data-*` attributes
-- `/hyperframes-cli` — `hyperframes lint` to verify scene structure
+- `/hyperframes-motion` — timeline + multi-property tween reference
+- `//hyperframes/core` — composition wiring, `data-*` attributes
+- `//hyperframes/cli` — `hyperframes lint` to verify scene structure

@@ -9,7 +9,7 @@
 //   - contrast-overlay.png  (sprite grid; magenta=fail AA, yellow=pass AA only, green=AAA)
 //
 // Usage:
-//   node skills/hyperframes-creative/scripts/contrast-report.mjs <composition-dir> \
+//   node skills/hyperframes-design/scripts/contrast-report.mjs <composition-dir> \
 //     [--samples N] [--out <dir>] [--width W] [--height H] [--fps N]
 //
 // The composition directory must contain an index.html. Raw authoring HTML

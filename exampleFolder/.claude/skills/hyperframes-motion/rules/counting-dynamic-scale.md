@@ -278,6 +278,6 @@ For 3 stats counting in parallel, share the SAME ease and duration so they finis
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — timeline + `onUpdate` API
-- `/hyperframes-core` — composition wiring, `data-*` attributes
-- `/hyperframes-cli` — `hyperframes lint` to verify scene
+- `/hyperframes-motion` — timeline + `onUpdate` API
+- `//hyperframes/core` — composition wiring, `data-*` attributes
+- `//hyperframes/cli` — `hyperframes lint` to verify scene

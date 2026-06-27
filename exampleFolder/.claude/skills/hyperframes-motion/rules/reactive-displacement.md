@@ -272,6 +272,6 @@ Intruder displaces multiple aligned cards, each victim getting a slightly delaye
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — single driver, multi-value onUpdate
-- `/hyperframes-core` — composition wiring
-- `/hyperframes-cli` — `hyperframes lint`
+- `/hyperframes-motion` — single driver, multi-value onUpdate
+- `//hyperframes/core` — composition wiring
+- `//hyperframes/cli` — `hyperframes lint`

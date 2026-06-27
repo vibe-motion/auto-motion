@@ -1,12 +1,12 @@
 ---
-name: hyperframes-animation
+name: hyperframes-motion
 description: "All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene transitions, broader motion-design techniques, AND the seven runtime adapters (GSAP default, plus Lottie, Three.js, Anime.js, CSS keyframes, Web Animations API, TypeGPU). Use for any motion or animation task: pick 2-4 rules and compose, or load a blueprint, or look up runtime-specific API (e.g. GSAP eases / Lottie player / Three.js mixer). HyperFrames-native: single paused timeline, seek-safe, deterministic."
 ---
-# HyperFrames Animation
+# HyperFrames Motion
 
 All motion knowledge in one skill: **rules** (atomic recipes), **blueprints** (multi-phase scene templates), **transitions** (scene-to-scene), **techniques** (broader motion-design patterns), and **adapters** (per-runtime APIs).
 
-For the composition contract (data attributes, sub-compositions, determinism) see `hyperframes-core`.
+For the composition contract (data attributes, sub-compositions, determinism) see `/hyperframes` → `core/`.
 
 ## Default: compose atomic rules
 
@@ -58,7 +58,7 @@ Multiple runtimes can coexist in one composition. Each registers its instances o
 
 ## Critical Constraints
 
-**Prerequisite: `hyperframes-core` → Non-Negotiable Rules** (single paused timeline, `data-duration` governs length, no `Math.random` / `Date.now` / `performance.now`, no `repeat: -1`, no `gsap.set` on later-scene clips, no `display` / `visibility` animation, no timeline construction inside `async` / `setTimeout` / `Promise`). Don't restate those here.
+**Prerequisite: `/hyperframes/core` → Non-Negotiable Rules** (single paused timeline, `data-duration` governs length, no `Math.random` / `Date.now` / `performance.now`, no `repeat: -1`, no `gsap.set` on later-scene clips, no `display` / `visibility` animation, no timeline construction inside `async` / `setTimeout` / `Promise`). Don't restate those here.
 
 Animation-craft additions on top of core's contract:
 
@@ -68,7 +68,7 @@ Animation-craft additions on top of core's contract:
 ## Scripts
 
 ```bash
-node skills/hyperframes-animation/scripts/animation-map.mjs <composition-dir> \
+node skills/hyperframes-motion/scripts/animation-map.mjs <composition-dir> \
   --out <composition-dir>/.hyperframes/anim-map
 ```
 
@@ -76,6 +76,6 @@ Reads every GSAP timeline registered on `window.__timelines`, enumerates tweens,
 
 ## See Also
 
-- `hyperframes-core` — composition structure, data attributes, sub-compositions, deterministic render contract
-- `hyperframes-creative` — palettes, typography, beat planning (non-animation creative direction)
-- `hyperframes-cli` — `npx hyperframes lint / validate / inspect / preview / render`
+- `/hyperframes` → `core/` — composition structure, data attributes, sub-compositions, deterministic render contract
+- `/hyperframes-design` — palettes, typography, beat planning (non-animation creative direction)
+- `/hyperframes` → `cli/` — `npx hyperframes lint / validate / inspect / preview / render`

@@ -24,7 +24,7 @@ Other useful flags:
 - `--skip-transcribe` — don't auto-transcribe `--video` with Whisper.
 - `--model`, `--language` — Whisper model / language for the auto-transcription.
 
-When using `--tailwind`, invoke the `hyperframes-core` (Tailwind reference) skill before editing classes or theme tokens. The scaffold uses Tailwind v4 browser runtime patterns, not Studio's Tailwind v3 setup.
+When using `--tailwind`, see `../../core/references/tailwind.md` before editing classes or theme tokens. The scaffold uses Tailwind v4 browser runtime patterns, not Studio's Tailwind v3 setup.
 
 When `--video` is supplied, `init` transcribes the file with Whisper. For model selection see the `hyperframes-media` skill.
 
@@ -47,4 +47,4 @@ Captures a live URL as an editable HyperFrames project: screenshots become layer
 npx hyperframes skills    # install HyperFrames skills for AI coding tools
 ```
 
-One-time setup that adds the HyperFrames skill pack (`hyperframes-core`, `-creative`, `-animation`, `-cli`, `-registry`, `-media`) to the local AI coding environment so agents follow the framework conventions. Re-run after major HyperFrames upgrades.
+One-time setup that adds the HyperFrames skill pack to the local AI coding environment so agents follow the framework conventions. Re-run after major HyperFrames upgrades.

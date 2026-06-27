@@ -66,7 +66,7 @@ Atomic motion recipes. Each lives at `rules/<name>.md`. Compose 2-4 per scene wi
 <card-morph-anchor path="rules/card-morph-anchor.md">Container morphs apparent size + corner radius + surface treatment between two shots, then fades to reveal the real target underneath. HyperFrames substitutes uniform `scale` for the forbidden `width`/`height` tween, plus paint-only `borderRadius`/`background`/`boxShadow`. Tags: morph, anchor, transition, border-radius, container, shape, handoff</card-morph-anchor>
 </rules>
 
-## Effect Recipes (moved from hyperframes-creative)
+## Effect Recipes (moved from hyperframes-design)
 
 <rules>
 <gsap-effects path="rules/gsap-effects.md">Drop-in GSAP timeline patterns — typewriter and other reusable choreography blocks. Tags: gsap, recipe, drop-in, typewriter</gsap-effects>

@@ -9,7 +9,7 @@ Everything runs through `npx hyperframes` unless project instructions specify a 
 ## Workflow
 
 1. **Scaffold** — `npx hyperframes init my-video` (or `capture` from a URL)
-2. **Write** — author HTML composition (see the `hyperframes-core` skill)
+2. **Write** — author HTML composition (see `../core`)
 3. **Lint** — `npx hyperframes lint`
 4. **Validate** — `npx hyperframes validate` (runtime errors + contrast)
 5. **Visual inspect** — `npx hyperframes inspect`
@@ -48,12 +48,11 @@ Cross-cutting rules that hold for every command:
 | Everything else (`info`, `upgrade`, `compositions`, `docs`, `benchmark`, `telemetry`, asset preprocessing) | `references/upgrade-info-misc.md`     |
 
 
-## Cross-Skill Hand-Offs
+## Section Hand-Offs
 
-- **Tailwind projects** (`init --tailwind`) → use `hyperframes-core` (Tailwind reference) before editing classes or theme tokens.
-- **Registry blocks/components** (`hyperframes add`, `hyperframes catalog`) → use `hyperframes-registry` for install paths, sub-composition wiring, and snippet merging.
-- **Asset preprocessing** (`transcribe`, `remove-background`) → use `hyperframes-media` for Whisper model rules and caption-authoring.
-- **Parametrized renders** (`--variables`) → declared via `data-composition-variables` on `<html>`; see `hyperframes-core` for the full schema.
+- **Tailwind projects** (`init --tailwind`) → see `../core/references/tailwind.md` before editing classes or theme tokens.
+- **Registry blocks/components** (`hyperframes add`, `hyperframes catalog`) → see `../registry` for install paths, sub-composition wiring, and snippet merging.
+- **Parametrized renders** (`--variables`) → declared via `data-composition-variables` on `<html>`; see `../core/references/variables-and-media.md` for the full schema.
 
 ## Lambda (Cloud Rendering)
 
@@ -82,7 +81,7 @@ Add `inspect` for layout-sensitive work and `render --strict` in CI to fail on l
 
 ### Visual smoke test — required when the project uses sub-compositions
 
-`lint` / `validate` / `inspect` evaluate each composition **in isolation**. They never load `index.html` and mount sub-compositions via `data-composition-src`, so they cannot catch cross-file mount failures (see `hyperframes-core` → `references/sub-compositions.md`, "Common pitfalls"). The only gate that catches them is one that actually loads `index.html` and seeks the timeline.
+`lint` / `validate` / `inspect` evaluate each composition **in isolation**. They never load `index.html` and mount sub-compositions via `data-composition-src`, so they cannot catch cross-file mount failures (see `../core/references/sub-compositions.md`, "Common pitfalls"). The only gate that catches them is one that actually loads `index.html` and seeks the timeline.
 
 Use `hyperframes snapshot` — it loads the project the same way `render` does (so it exercises the same mount path) but only captures the timestamps you request, so it's seconds instead of a full render:
 

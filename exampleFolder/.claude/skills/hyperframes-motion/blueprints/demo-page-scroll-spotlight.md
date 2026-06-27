@@ -197,7 +197,7 @@ Only parameters unique to this blueprint; for the standard ranges of `MAX_BLUR`,
 
 ## Spring → Ease Selection
 
-Four eases, four feels. Full mapping table lives in [hyperframes-animation/SKILL.md](../SKILL.md); the picks for this blueprint:
+Four eases, four feels. Full mapping table lives in [hyperframes-motion/SKILL.md](../SKILL.md); the picks for this blueprint:
 
 - Phase 1 entry / fades → `power2.out` (settling)
 - Phase 2 glow attack & decay → `power2.out` (fast onset, slow settle)

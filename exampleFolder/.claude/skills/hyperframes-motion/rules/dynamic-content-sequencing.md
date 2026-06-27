@@ -302,6 +302,6 @@ document
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — single driver, reverse-search dispatch
-- `/hyperframes-core` — composition wiring
-- `/hyperframes-cli` — `hyperframes lint`
+- `/hyperframes-motion` — single driver, reverse-search dispatch
+- `//hyperframes/core` — composition wiring
+- `//hyperframes/cli` — `hyperframes lint`

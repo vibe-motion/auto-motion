@@ -171,7 +171,7 @@ Only the parameters this blueprint introduces; for sizing ratios, eases, BOUNCE_
 
 ## Spring → Ease Selection
 
-Four distinct feels; the full mapping table lives in [hyperframes-animation/SKILL.md](../SKILL.md). This blueprint's defaults:
+Four distinct feels; the full mapping table lives in [hyperframes-motion/SKILL.md](../SKILL.md). This blueprint's defaults:
 
 - Phase 1 hero entrance → `power3.out`; breath rotation → `onUpdate Math.sin`
 - Phase 2 hero exit → `power3.out`; CTA pop-in → `back.out(BOUNCE_FACTOR)`

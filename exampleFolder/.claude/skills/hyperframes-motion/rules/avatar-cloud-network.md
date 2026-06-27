@@ -366,6 +366,6 @@ Replace face images with flags / emoji / iconography. Reads as "global community
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — staggered spring entries + SVG dash draw
-- `/hyperframes-core` — composition wiring
-- `/hyperframes-cli` — `hyperframes lint`
+- `/hyperframes-motion` — staggered spring entries + SVG dash draw
+- `//hyperframes/core` — composition wiring
+- `//hyperframes/cli` — `hyperframes lint`

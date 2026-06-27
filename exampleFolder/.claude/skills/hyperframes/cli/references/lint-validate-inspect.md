@@ -23,7 +23,7 @@ npx hyperframes lint --json           # machine-readable
 
 Lints `index.html` and all files in `compositions/`. Reports errors (must fix), warnings (should fix), and info (with `--verbose`). Catches missing `data-composition-id`, overlapping tracks on the same `data-track-index`, and unregistered timelines.
 
-**Blind spot — media inside a sub-composition (not yet a lint rule).** A `<video>` inside a `compositions/*.html` `<template>` (or nested in a wrapper `<div>` anywhere) is never seeked/decoded and renders blank/black; `lint`/`validate`/`inspect` all pass. Media must be a direct child of the host root (`index.html`) — see `hyperframes-core` → `variables-and-media.md`. Until a rule exists, check manually before render:
+**Blind spot — media inside a sub-composition (not yet a lint rule).** A `<video>` inside a `compositions/*.html` `<template>` (or nested in a wrapper `<div>` anywhere) is never seeked/decoded and renders blank/black; `lint`/`validate`/`inspect` all pass. Media must be a direct child of the host root (`index.html`) — see `../../core/references/variables-and-media.md`. Until a rule exists, check manually before render:
 
 ```bash
 grep -nE '<video\b' compositions/*.html   # expect NO matches; media belongs in index.html

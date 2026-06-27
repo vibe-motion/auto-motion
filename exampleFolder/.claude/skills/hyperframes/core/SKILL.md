@@ -6,7 +6,7 @@ description: "The HyperFrames composition contract — build one renderable proj
 
 HyperFrames renders video from HTML. A composition is an HTML file whose DOM declares timing with `data-*` attributes, whose animation runtime is seekable, and whose media playback is owned by the framework.
 
-This skill is the **technical contract** — how to build one hyperframes project. The body below is the build guide; per-topic detail lives in `references/` (index next), read on demand. Other concerns live in the sibling domain skills — `hyperframes-animation`, `hyperframes-creative`, `hyperframes-media`, `hyperframes-cli`, `hyperframes-registry`. The capability map in `/hyperframes` says what each one covers.
+This is the **composition contract** — how to build one hyperframes project. The body below is the build guide; per-topic detail lives in `references/` (index next), read on demand. Other concerns live in sibling sections of the same skill — `../cli` (dev loop) and `../registry` (install blocks / components) — and in the sibling design skills, `/hyperframes-motion` (animation recipes) and `/hyperframes-design` (palettes, typography, frame presets). The capability map in `../SKILL.md` says what each one covers.
 
 ## References
 
@@ -21,11 +21,10 @@ This skill is the **technical contract** — how to build one hyperframes projec
 | `references/determinism-rules.md`    | build a seekable timeline; determinism bans; the animatable-property allowlist; layout / text fit |
 | `references/full-screen-motion.md`   | author full-frame motion with shared backgrounds                                                  |
 | `references/storyboard-format.md`    | author a `STORYBOARD.md` plan (+ the parsed manifest)                                             |
-| `references/script-format.md`        | author the optional `SCRIPT.md` locked caption text                                              |
 | `references/subagent-dispatch.md`    | map subagent dispatch verbs (parallel fan-out / background / wait) to your harness                |
 | `references/tailwind.md`             | work in a Tailwind v4 project (`init --tailwind`; runtime contract differs from Studio's v3)      |
 
-For animation runtime specifics (GSAP API, Lottie, Three.js, etc.) go to `hyperframes-animation` → `adapters/<runtime>.md`.
+For animation runtime specifics (GSAP API, Lottie, Three.js, etc.) go to `/hyperframes-motion` → `adapters/<runtime>.md`.
 
 ## Building a composition
 
@@ -45,7 +44,7 @@ The standalone root needs an explicit **sized box** (`width`/`height` in px), an
 
 ### One paused timeline
 
-Each composition registers **exactly one** `gsap.timeline({ paused: true })` at `window.__timelines["<id>"]` (key = root `data-composition-id`), built **synchronously** at page load. Render duration = root `data-duration`, not timeline length. Don't manually nest sub-timelines into the host. Full contract (incl. non-GSAP runtimes) → `references/determinism-rules.md` + `hyperframes-animation/adapters/`.
+Each composition registers **exactly one** `gsap.timeline({ paused: true })` at `window.__timelines["<id>"]` (key = root `data-composition-id`), built **synchronously** at page load. Render duration = root `data-duration`, not timeline length. Don't manually nest sub-timelines into the host. Full contract (incl. non-GSAP runtimes) → `references/determinism-rules.md` + `/hyperframes-motion/adapters/`.
 
 ### Non-negotiable rules (silent bugs `lint`/`validate`/`inspect` won't catch)
 
@@ -67,11 +66,4 @@ Surfaced here; full rationale in the linked reference. Do not violate:
 
 ## Validation
 
-Use `hyperframes-cli` for command details
-
-- [ ] `npx hyperframes lint` passes (0 errors)
-- [ ] `npx hyperframes validate` passes (0 console errors)
-- [ ] `npx hyperframes inspect` passes (0 errors)
-- [ ] Projects with sub-compositions: `npx hyperframes snapshot --at <midpoints>` and eyeball each frame
-- [ ] `npx hyperframes preview` for review (the user can edit anything in Studio's timeline)
-- [ ] `npx hyperframes render` only after the user approves
+Run the CLI gate (see `../cli/SKILL.md` → **Workflow** + **Minimum Completion Gate** for the canonical `lint` / `validate` / `inspect` / `snapshot` / `preview` / `render` checklist, including the visual smoke test required for sub-composition projects).

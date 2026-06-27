@@ -324,6 +324,6 @@ For a row of icons all animating, stagger their entries. Each icon's enrichment 
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — onUpdate writes transform/opacity per SVG child
-- `/hyperframes-core` — composition wiring
-- `/hyperframes-cli` — `hyperframes lint`
+- `/hyperframes-motion` — onUpdate writes transform/opacity per SVG child
+- `//hyperframes/core` — composition wiring
+- `//hyperframes/cli` — `hyperframes lint`

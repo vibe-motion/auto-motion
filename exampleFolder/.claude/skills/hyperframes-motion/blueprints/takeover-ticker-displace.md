@@ -156,7 +156,7 @@ Only parameters specific to this blueprint:
 
 ## Spring → Ease Selection
 
-Four phases, four feels. Full table in [hyperframes-animation/SKILL.md](../SKILL.md):
+Four phases, four feels. Full table in [hyperframes-motion/SKILL.md](../SKILL.md):
 
 - Phase 1 typewriter: `ease: "none"` (linear, sine isn't involved — the discreteness comes from `Math.floor`)
 - Phase 2 ticker steps: `back.out(BOUNCE_FACTOR)` per step (the rule's default)

@@ -200,7 +200,7 @@ Only listing values specific to this blueprint; standard rule parameters (`SCALE
 
 ## Spring → Ease Selection
 
-Four feels, four ease choices. Full spring → ease table lives in [hyperframes-animation/SKILL.md](../SKILL.md); blueprint defaults:
+Four feels, four ease choices. Full spring → ease table lives in [hyperframes-motion/SKILL.md](../SKILL.md); blueprint defaults:
 
 - Video entry / slide / exit and pill scale → `power3.out` (different durations; same family makes the timeline read coherent)
 - Stat entry → `back.out(STAT_BOUNCE_FACTOR)`, 1.4 soft → 2.0 firm → 2.8 cartoony (the stat usually wants firm-to-cartoony)

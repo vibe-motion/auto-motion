@@ -221,6 +221,6 @@ Pick one and use it across all scrolls in the scene — mixing easings within on
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — timeline + ease reference; `y:` tween basics
-- `/hyperframes-core` — composition wiring, `data-*` attributes
-- `/hyperframes-cli` — `hyperframes lint` to verify the registry key + duration
+- `/hyperframes-motion` — timeline + ease reference; `y:` tween basics
+- `//hyperframes/core` — composition wiring, `data-*` attributes
+- `//hyperframes/cli` — `hyperframes lint` to verify the registry key + duration

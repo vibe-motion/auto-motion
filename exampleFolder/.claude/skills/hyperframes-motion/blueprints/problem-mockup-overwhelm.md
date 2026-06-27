@@ -138,7 +138,7 @@ Standard parameters (`OLD_FADE_FRAC`, `FINAL_FADE_FRAC`, `SCALE_AMP`, `Y_AMP_PX`
 
 ## Spring → Ease Selection
 
-Four entry feels, one morph driver, one continuous loop. The full mapping lives in [hyperframes-animation/SKILL.md](../SKILL.md); this blueprint's choices:
+Four entry feels, one morph driver, one continuous loop. The full mapping lives in [hyperframes-motion/SKILL.md](../SKILL.md); this blueprint's choices:
 
 - Phase 1 mockup entries → `back.out(ENTRY_BOUNCE)` (subtle overshoot; 1.2–1.6)
 - Phase 2 icon entries → `back.out(ICON_BOUNCE)` (snappier; 1.4–1.8 so the cluster reads as alive)

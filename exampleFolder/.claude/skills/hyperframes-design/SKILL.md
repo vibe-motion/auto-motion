@@ -1,12 +1,12 @@
 ---
-name: hyperframes-creative
-description: "Non-animation creative direction for HyperFrames videos. Use for design spec (frame.md / design.md) handling, palettes, typography, beat planning, composition patterns, and brand / style decisions. For atomic motion patterns and scene blueprints, use `hyperframes-animation`."
+name: hyperframes-design
+description: "Non-animation creative direction for HyperFrames videos. Use for design spec (frame.md / design.md) handling, palettes, typography, beat planning, composition patterns, and brand / style decisions. For atomic motion patterns and scene blueprints, use `hyperframes-motion`."
 ---
-# HyperFrames Creative
+# HyperFrames Design
 
-Brand, pacing, style, and composition direction. Use after the technical contract from `hyperframes-core` is in place.
+Brand, pacing, style, and composition direction. Use after the technical contract from `/hyperframes/core` is in place.
 
-For motion patterns, scene blueprints, transitions, and CSS marker effects, use `hyperframes-animation` — this skill is intentionally non-animation.
+For motion patterns, scene blueprints, transitions, and CSS marker effects, use `hyperframes-motion` — this skill is intentionally non-animation.
 
 > **Read these two FIRST for any non-trivial composition — they override web instincts:**
 >
@@ -22,8 +22,8 @@ For motion patterns, scene blueprints, transitions, and CSS marker effects, use 
    - Ready-made frame-preset (optional) → `frame-presets/` (adopt a `FRAME.md` as `frame.md`; see `references/design-spec.md`)
    - Named style or mood → `references/visual-styles.md`
    - Fast defaults → `references/house-style.md`
-3. For multi-scene work, plan beats and rhythm before writing HTML → `references/beat-direction.md`. For scene transitions, jump to `hyperframes-animation/transitions/`.
-4. For motion-heavy work, read `references/motion-principles.md` (high-level guardrails), then go to `hyperframes-animation` for atomic rules.
+3. For multi-scene work, plan beats and rhythm before writing HTML → `references/beat-direction.md`. For scene transitions, jump to `hyperframes-motion/transitions/`.
+4. For motion-heavy work, read `references/motion-principles.md` (high-level guardrails), then go to `hyperframes-motion` for atomic rules.
 
 ## Routing
 
@@ -49,11 +49,11 @@ For motion patterns, scene blueprints, transitions, and CSS marker effects, use 
 
 Run from the repo root with explicit paths.
 
-Animation analysis (`animation-map.mjs`) lives in `hyperframes-animation/scripts/`.
+Animation analysis (`animation-map.mjs`) lives in `hyperframes-motion/scripts/`.
 
 ## Boundaries
 
-- Do not override `hyperframes-core` technical rules.
+- Do not override `/hyperframes/core` technical rules.
 - Do not require a design system for a minimal technical composition.
 - Do not add extra scenes, captions, or transitions unless the request calls for them or you first propose the expansion.
 - Keep recipe references task-specific; do not read every reference for simple edits.

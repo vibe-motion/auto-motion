@@ -171,7 +171,7 @@ Only listing the parameters **unique to this blueprint** below; standard paramet
 
 ## Spring → Ease Selection
 
-Four phases, four spring feels, four ease choices. The complete spring → ease mapping table lives in [hyperframes-animation/SKILL.md](../SKILL.md); this blueprint's defaults are:
+Four phases, four spring feels, four ease choices. The complete spring → ease mapping table lives in [hyperframes-motion/SKILL.md](../SKILL.md); this blueprint's defaults are:
 
 - Phase 2 elastic pop → `back.out(BOUNCE_FACTOR)` (swap to `elastic.out` for rubberier feel)
 - Phase 3 tight exit → `power3.out`

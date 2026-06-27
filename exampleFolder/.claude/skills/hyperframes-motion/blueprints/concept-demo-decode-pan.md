@@ -166,7 +166,7 @@ Only values **specific to this blueprint** below; standard parameters (`FLIP_DUR
 
 ## Spring → Ease Selection
 
-Four phases, four feels. The complete spring → ease mapping table lives in [hyperframes-animation/SKILL.md](../SKILL.md); this blueprint's defaults:
+Four phases, four feels. The complete spring → ease mapping table lives in [hyperframes-motion/SKILL.md](../SKILL.md); this blueprint's defaults:
 
 - Phase 1 settle → `power2.out`
 - Phase 2 character flip → `back.out(FLIP_BOUNCE)` (rule default)

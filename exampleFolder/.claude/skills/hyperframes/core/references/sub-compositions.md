@@ -196,7 +196,7 @@ grep -n 'data-composition-id=' compositions/<scene>.html
 #        (e.g. `.frame { … }`); scoping drops it. Style the root via #root. See Pitfall 3.
 ```
 
-For the runtime end-to-end check (a fast `snapshot` pass + per-scene frame eyeball), see the **Visual smoke test** step in `hyperframes-cli`'s Minimum Completion Gate — that is the only gate that catches these three pitfalls.
+For the runtime end-to-end check (a fast `snapshot` pass + per-scene frame eyeball), see the **Visual smoke test** step in `../cli`'s Minimum Completion Gate — that is the only gate that catches these three pitfalls.
 
 ## What HyperFrames Does With the Sub-Composition
 

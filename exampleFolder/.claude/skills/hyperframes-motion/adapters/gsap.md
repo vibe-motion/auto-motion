@@ -5,7 +5,7 @@ description: GSAP animation API reference for HyperFrames. Use when writing seek
 
 # HyperFrames GSAP
 
-GSAP usage scoped to HyperFrames' seek-driven render model. This skill is the GSAP reference _as constrained by HyperFrames_ — for the framework's broader composition contract see `hyperframes-core`.
+GSAP usage scoped to HyperFrames' seek-driven render model. This skill is the GSAP reference _as constrained by HyperFrames_ — for the framework's broader composition contract see `/hyperframes/core`.
 
 ## HyperFrames Contract
 
@@ -73,7 +73,7 @@ HyperFrames is stricter than vanilla GSAP. Animate only:
 - `display`, `visibility` — never tween these directly. Use `autoAlpha` (sets opacity + visibility together at endpoints, doesn't tween the discrete property).
 - Anything driven by `Math.random()`, `Date.now()`, `performance.now()`, or event handlers — animation state must be deterministic from time alone.
 
-> **Note**: `docs/guides/gsap-animation.mdx` lists `width`/`height`/`visibility` in its "Supported Properties" — that list is too permissive for HyperFrames composition rules. This allowlist is the canonical one. See `hyperframes-core/references/determinism-rules.md` for the full deterministic-render contract.
+> **Note**: `docs/guides/gsap-animation.mdx` lists `width`/`height`/`visibility` in its "Supported Properties" — that list is too permissive for HyperFrames composition rules. This allowlist is the canonical one. See `/hyperframes/core/references/determinism-rules.md` for the full deterministic-render contract.
 
 ## References
 

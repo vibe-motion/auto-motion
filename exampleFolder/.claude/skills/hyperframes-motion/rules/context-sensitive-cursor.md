@@ -252,6 +252,6 @@ If a segment is rendered DARK text on light bg, cursor should swap to dark too. 
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — onUpdate driving cursor color + sin blink
-- `/hyperframes-core` — composition wiring
-- `/hyperframes-cli` — `hyperframes lint`
+- `/hyperframes-motion` — onUpdate driving cursor color + sin blink
+- `//hyperframes/core` — composition wiring
+- `//hyperframes/cli` — `hyperframes lint`

@@ -176,7 +176,7 @@ Only blueprint-unique parameters listed. Standard rule parameters (`FLIP_DURATIO
 
 ## Spring → Ease Selection
 
-Four distinct feels across the five phases. Full mapping table in [hyperframes-animation/SKILL.md](../SKILL.md); this blueprint's defaults:
+Four distinct feels across the five phases. Full mapping table in [hyperframes-motion/SKILL.md](../SKILL.md); this blueprint's defaults:
 
 - Phase 1 hacker-flip — `power3.out` per char (rule's default)
 - Phase 2 swap — `power3.out` on exit + shift, `power2.out` on claim fade

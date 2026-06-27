@@ -30,7 +30,7 @@ Sub-agents reading those files get exact GSAP timings, easing strings, DOM split
 
 ## When you don't need the upstream skill
 
-If a beat's text animation is simple enough to describe in prose ("headline fades up word-by-word, 80ms stagger"), implement it inline using the GSAP knowledge already in these skills (`hyperframes-creative` → `references/motion-principles.md` and `references/beat-direction.md`; `hyperframes-animation` → `techniques.md`, entry #4 "Per-Word Kinetic Typography"). The upstream catalog is most valuable when:
+If a beat's text animation is simple enough to describe in prose ("headline fades up word-by-word, 80ms stagger"), implement it inline using the GSAP knowledge already in these skills (`hyperframes-design` → `references/motion-principles.md` and `references/beat-direction.md`; `hyperframes-motion` → `techniques.md`, entry #4 "Per-Word Kinetic Typography"). The upstream catalog is most valuable when:
 
 - You want a specific NAMED effect across multiple beats (so they feel like one design system, not one-offs)
 - You're choosing between several similar effects (typewriter vs per-character-rise vs bottom-up-letters) and want to see all 24 in one place

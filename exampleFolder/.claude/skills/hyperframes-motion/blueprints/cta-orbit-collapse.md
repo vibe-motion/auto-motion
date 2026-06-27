@@ -176,7 +176,7 @@ Only listing parameters unique to this blueprint — standard ranges (`ENTRY_DUR
 
 ## Spring → Ease Selection
 
-Five spring-shaped beats, four `back.out` coefficients plus one sine yoyo. Full mapping table lives in [hyperframes-animation/SKILL.md](../SKILL.md); the intent-to-ease pairing here is:
+Five spring-shaped beats, four `back.out` coefficients plus one sine yoyo. Full mapping table lives in [hyperframes-motion/SKILL.md](../SKILL.md); the intent-to-ease pairing here is:
 
 - Phase 1 icon flip → `back.out(ENTRY_BACK)` (calm arrive, low end of range)
 - Phase 2 cursor move → `back.out(CURSOR_BACK)` (calm settle)

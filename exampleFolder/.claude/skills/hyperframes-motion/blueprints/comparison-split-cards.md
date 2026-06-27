@@ -129,7 +129,7 @@ Standard parameters (`BASE_TILT` range, `BOUNCE_FACTOR` range, `FLOAT_AMP` range
 
 ## Spring → Ease Selection
 
-Three different feels across the three phases — full mapping table lives in [hyperframes-animation/SKILL.md](../SKILL.md).
+Three different feels across the three phases — full mapping table lives in [hyperframes-motion/SKILL.md](../SKILL.md).
 
 - Phase 1 title settle → `power3.out`
 - Phase 2 card entries → `power3.out` (consistency: the scene's "arriving" feel)

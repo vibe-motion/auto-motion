@@ -327,6 +327,6 @@ Chain multiple zooms: target A (1.5-2.5s) → pause → target B (3-4s) → pull
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — two coordinated tweens
-- `/hyperframes-core` — composition wiring
-- `/hyperframes-cli` — `hyperframes lint`
+- `/hyperframes-motion` — two coordinated tweens
+- `//hyperframes/core` — composition wiring
+- `//hyperframes/cli` — `hyperframes lint`

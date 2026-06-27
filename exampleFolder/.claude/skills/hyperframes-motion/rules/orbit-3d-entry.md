@@ -296,6 +296,6 @@ Items rendered above/below the equator visually arc through the plane.
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — timeline + `onUpdate` API
-- `/hyperframes-core` — composition wiring
-- `/hyperframes-cli` — `hyperframes lint`
+- `/hyperframes-motion` — timeline + `onUpdate` API
+- `//hyperframes/core` — composition wiring
+- `//hyperframes/cli` — `hyperframes lint`

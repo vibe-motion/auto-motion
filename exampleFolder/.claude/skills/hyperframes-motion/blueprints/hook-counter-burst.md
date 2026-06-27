@@ -150,7 +150,7 @@ The most common failures, top down:
 
 ## Spring → Ease Selection
 
-Three distinct feels, three eases. Full mapping table in [hyperframes-animation/SKILL.md](../SKILL.md).
+Three distinct feels, three eases. Full mapping table in [hyperframes-motion/SKILL.md](../SKILL.md).
 
 - Phase 2 stiff icon entry → `back.out(BOUNCE_FACTOR)`
 - Phase 3 counter + expansion chord → `power2.out` (default) or `power3.out` for stronger settle. **Avoid** `back.out` here — the rule already says it for the counter, but it applies to the icons too because they share the tween.

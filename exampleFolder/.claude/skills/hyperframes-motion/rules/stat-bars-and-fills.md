@@ -135,7 +135,7 @@ tl.to(
 - **Transforms only** — `scaleY` / `scaleX` / `clipPath`, never `width`/`height` tweens (runtime-forbidden).
 - **Match the number's timing** — the fill and the count-up should peak together (same start + ease), so the stat resolves as one beat, not two.
 - **Measure, don't hard-code** — ring length via `getTotalLength()`; a hard-coded circumference breaks if the radius changes.
-- **One accent hue, consistent archetype** — see `hyperframes-creative/references/data-in-motion.md`.
+- **One accent hue, consistent archetype** — see `hyperframes-design/references/data-in-motion.md`.
 
 ## Critical Constraints
 
@@ -151,6 +151,6 @@ tl.to(
 
 ## Pairs with HF skills
 
-- `/hyperframes-animation` — timeline + transform tweens
-- `/hyperframes-creative` — `references/data-in-motion.md` (stat layout + visual weight)
-- `/hyperframes-core` — composition wiring; the no-`width`/`height`-tween rule
+- `/hyperframes-motion` — timeline + transform tweens
+- `/hyperframes-design` — `references/data-in-motion.md` (stat layout + visual weight)
+- `//hyperframes/core` — composition wiring; the no-`width`/`height`-tween rule
