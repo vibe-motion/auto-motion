@@ -1,2 +1,5 @@
 auto-test/.tmp/
 .DS_Store
+auto-hyper-/resources/*
+!auto-hyper-/resources/codex.svg
+!auto-hyper-/resources/github.svg
