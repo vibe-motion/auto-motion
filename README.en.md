@@ -1,0 +1,150 @@
+<p align="right">
+  <a href="./README.md">简体中文</a> | English
+</p>
+
+# auto-motion
+
+`auto-motion` is a workflow template that turns an SRT transcript into multiple motion-graphics scenes and stitches them into a vertical video. Provide `transcription.srt`, then run Codex with the instructions in `PROMPT.md`; Codex segments the transcript, calls Claude Code scene by scene, and uses FFmpeg to produce `final.mp4`.
+
+## Architecture
+
+### 1. Orchestration: Codex + PROMPT.md
+
+`PROMPT.md` defines the full automation flow:
+
+- Read `transcription.srt` from the current working directory.
+- Split the transcript into semantic scenes that continuously cover the full subtitle timeline.
+- Create independent scene folders such as `scenes/scene-001` and `scenes/scene-002`.
+- Copy the execution template and HyperFrames skills from `exampleFolder`.
+- Call Claude Code sequentially to generate each scene MP4.
+- Check scene duration and output specs, then stitch all scene videos into `final.mp4` with FFmpeg.
+
+### 2. Execution: Claude Code + run-claude-ai.sh
+
+`exampleFolder/run-claude-ai.sh` is the single-scene execution template. Codex fills in the scene-specific values:
+
+- `SCENE_ID`
+- `SCENE_DURATION_SECONDS`
+- `SCENE_TEXT`
+- `OUTPUT_FILE`
+- `FULL_TRANSCRIPT_PATH`
+
+The script invokes Claude Code non-interactively through `claude -p` and requires fixed progress messages. Raw logs, stderr logs, and user-readable progress are written into each scene folder:
+
+- `claude-<scene>.stream.jsonl`
+- `claude-<scene>.stderr.log`
+- `claude-<scene>.user.log`
+
+### 3. Motion Authoring: HyperFrames
+
+`exampleFolder/.claude/skills/` contains the HyperFrames skills used by Claude Code. Claude Code writes an HTML animation project with those skills and renders a 1080x1440, 30fps, silent MP4 with no audio track.
+
+### 4. Validation: auto-test
+
+`auto-test/run.sh` provides an end-to-end test entry point. It creates a temporary workspace, copies the test transcript and templates, asks Codex to run the full flow, then uses `auto-test/validate.sh` to verify:
+
+- Required Claude Code progress messages are present.
+- The scene MP4 and `final.mp4` exist.
+- Video resolution is 1080x1440.
+- Frame rate is approximately 30fps.
+- Duration is close to the subtitle duration.
+- The output has no audio track.
+
+## Prerequisites
+
+Install and sign in to the following tools first:
+
+- [Codex CLI](https://developers.openai.com/codex/cli)
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
+- Node.js 22 or newer
+- FFmpeg and FFprobe
+- `jq`
+- Network access, so Claude Code can search for references, install dependencies, or download brand visual assets
+
+Run these checks before starting:
+
+```bash
+codex --version
+claude --version
+node --version
+ffmpeg -version
+ffprobe -version
+jq --version
+```
+
+## Quick Start
+
+### 1. Prepare the transcript
+
+Place your SRT file at the repository root and name it `transcription.srt`:
+
+```bash
+cp /path/to/transcription.srt ./transcription.srt
+```
+
+### 2. Run the automation
+
+From the repository root:
+
+```bash
+codex exec \
+  --cd . \
+  --sandbox danger-full-access \
+  --ask-for-approval never \
+  - < PROMPT.md
+```
+
+Codex reads `PROMPT.md`, splits the transcript, creates scene folders, calls Claude Code scene by scene, and produces:
+
+```text
+scenes/
+  scene-001/
+    scene-001.mp4
+    claude-scene-001.stream.jsonl
+    claude-scene-001.stderr.log
+    claude-scene-001.user.log
+  scene-002/
+    scene-002.mp4
+final.mp4
+```
+
+### 3. Open the result
+
+The final video is written to the repository root:
+
+```bash
+open final.mp4
+```
+
+## Test
+
+Run the built-in end-to-end test:
+
+```bash
+bash auto-test/run.sh
+```
+
+Test artifacts are written to `auto-test/.tmp/`, which is ignored by Git.
+
+## Repository Layout
+
+```text
+.
+├── PROMPT.md                    # Main workflow instructions
+├── transcription.srt            # Input transcript
+├── exampleFolder/
+│   ├── run-claude-ai.sh          # Single-scene Claude Code template
+│   └── .claude/skills/           # HyperFrames skills
+├── auto-test/
+│   ├── run.sh                    # End-to-end test entry point
+│   ├── validate.sh               # Video validation script
+│   └── transcription.srt         # Test transcript
+└── final.mp4                     # Generated delivery video
+```
+
+## Notes
+
+- Only one Claude Code call should run at a time; scene rendering is intentionally sequential.
+- Scenes must continuously cover the subtitle timeline, and the sum of scene durations should match the transcript duration.
+- If a scene fails, inspect its `stderr.log`, `stream.jsonl`, and `user.log` first.
+- If scene video specs differ, normalize them before stitching.
