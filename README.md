@@ -6,6 +6,10 @@
 
 `auto-motion` 是一个把字幕稿自动拆分成多段 MG 动画镜头，并拼接成竖屏视频的工作流模板。你只需要准备 `transcription.srt`，然后让 Codex 执行 `PROMPT.md` 中的任务说明；Codex 会按字幕语义拆镜头，逐个调用 Claude Code 生成单镜头动画，最后用 FFmpeg 拼接出 `final.mp4`。
 
+## 效果演示
+
+<img src="./readme-assets/auto-motion-demo.gif" alt="auto-motion 生成的 MG 动画效果演示" width="540" />
+
 ## 运行证据
 
 下面是一段真实运行过程截图：多镜头任务已经连续运行 1 小时 36 分钟，Codex 正在等待 Claude Code 完成后续镜头的代码实现和渲染。
