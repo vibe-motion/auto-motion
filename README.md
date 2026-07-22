@@ -8,7 +8,44 @@
 
 ## 效果演示
 
-<img src="./readme-assets/auto-motion-demo.gif" alt="auto-motion 生成的 MG 动画效果演示" width="540" />
+演示截取自成片的 `00:00:03,000 → 00:00:13,000`。左侧是输入给 auto-motion 的 [SRT 字幕片段](./readme-assets/auto-motion-demo.srt)，右侧是自动生成并加回字幕的动画。
+
+<table>
+  <thead>
+    <tr>
+      <th width="50%">输入：SRT</th>
+      <th width="50%">输出：生成的动画</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top"><pre><code>1
+00:00:00,000 --> 00:00:02,033
+由GPT5.6sol和qwen 3.8 Max Preview做的
+
+2
+00:00:02,100 --> 00:00:03,466
+GPT负责对文案脚本
+
+3
+00:00:03,466 --> 00:00:05,566
+进行切割、查资料、找素材
+
+4
+00:00:05,666 --> 00:00:07,600
+qwen 3.8则负责写react代码
+
+5
+00:00:07,600 --> 00:00:09,133
+再用remotion将创意渲染
+
+6
+00:00:09,133 --> 00:00:10,000
+为motion graphics动画</code></pre></td>
+      <td valign="top"><img src="./readme-assets/auto-motion-demo.gif" alt="auto-motion 根据左侧 SRT 生成的 MG 动画" width="420" /></td>
+    </tr>
+  </tbody>
+</table>
 
 ## 运行证据
 
