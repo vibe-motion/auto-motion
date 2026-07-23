@@ -7,6 +7,12 @@ description: Generate a single image from a text prompt using the MiniMax image 
 
 Generate one image from a text prompt via MiniMax `image-01` model. The output file is written to the filename you pass as the 4th argument (relative to the caller's cwd).
 
+Set the MiniMax API key in the environment before running the script. Never write the key into this repository:
+
+```bash
+export MINIMAX_API_KEY="<your-api-key>"
+```
+
 The script path is resolved relative to this SKILL.md (not the caller's cwd), so it works from any directory. It accepts exactly four positional arguments: prompt, width, height, output_filename.
 
 ```bash

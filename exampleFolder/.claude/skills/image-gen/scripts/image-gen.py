@@ -1,9 +1,15 @@
 import base64
+import os
 import sys
+
 import requests
 
 url = "https://api.minimaxi.com/v1/image_generation"
-headers = {"Authorization": "Bearer sk-cp-sNZzrMUINjaI6uOVtgwGGlanDktGIbImMSjtv32F4tyfywBpRCzT55D9kG8-y1e5PTdhXXBNd4V5axWpe-cabRr4nlKaFmxb7TAfI1Tbk3sxRe_HPC9WAZw"}
+api_key = os.environ.get("MINIMAX_API_KEY", "").strip()
+if not api_key:
+    raise SystemExit("MINIMAX_API_KEY environment variable is required")
+
+headers = {"Authorization": f"Bearer {api_key}"}
 
 prompt = sys.argv[1]
 width = int(sys.argv[2])

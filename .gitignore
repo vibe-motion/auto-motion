@@ -1,5 +1,8 @@
 auto-test/.tmp/
 .DS_Store
+.env
+.env.*
+!.env.example
 auto-hyper-/resources/*
 !auto-hyper-/resources/codex.svg
 !auto-hyper-/resources/github.svg
